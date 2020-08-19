@@ -5,7 +5,7 @@ class App{
     this.handleGetGradesSuccess=this.handleGetGradesSuccess.bind(this);
   }
   handleGetGradesError(error){
-    console.error(error);
+    console.error("error");
   }
   handleGetGradesSuccess(grades){
     console.log(grades);
@@ -15,8 +15,8 @@ class App{
       method:"GET",
       url: "https://sgt.lfzprototypes.com/api/grades",
       headers: { "X-Access-Token": "bMeUYeQj"},
-      success:this.handleGetGradesSuccess(),
-      error:this.handleGetGradesError()
+      success:this.handleGetGradesSuccess,
+      error:this.handleGetGradesError
     })
     }
   start(){
