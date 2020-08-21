@@ -19,8 +19,8 @@ class App{
       success:this.handleGetGradesSuccess,
       error:this.handleGetGradesError
     })
-    }
+  }
   start(){
     this.getGrades();
   }
-  }
+}
