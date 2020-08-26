@@ -7,8 +7,11 @@ class App{
     this.pageHeader=pageHeader;
     this.gradeForm=gradeForm;
     this.createGrade=this.createGrade.bind(this);
-    this.handleCreateGradeError=this.handleCreateGradeError(this);
-    this.handleCreateGradeSuccess=this.handleCreateGradeSuccess(this);
+    this.handleCreateGradeError=this.handleCreateGradeError.bind(this);
+    this.handleCreateGradeSuccess=this.handleCreateGradeSuccess.bind(this);
+    this.deleteGrade=this.deleteGrade.bind(this);
+    this.handleDeleteGradeSuccess=this.handleDeleteGradeSuccess.bind(this);
+    this.handleDeleteGradeError=this.handleDeleteGradeError.bind(this);
 
   }
   handleGetGradesError(error){
@@ -36,6 +39,7 @@ class App{
   start(){
     this.getGrades();
     this.gradeForm.onSubmit(this.createGrade);
+    this.gradeTable.onDeleteClick(this.deleteGrade);
   }
   createGrade(name,course,grade){
     $.ajax({
@@ -49,6 +53,7 @@ class App{
       success: this.handleCreateGradeSuccess,
       error: this.handleCreateGradeError
     })
+  
   }
   handleCreateGradeError(error){
     console.error();
@@ -56,4 +61,14 @@ class App{
   handleCreateGradeSuccess(){
     this.getGrades();
   }
+  deleteGrade(id){
+    console.log(id);
+  }
+  handleDeleteGradeError(error){
+    console.error(error);
+  }
+  handleDeleteGradeSuccess(){
+    this.getGrades();
+  }
+
 }
