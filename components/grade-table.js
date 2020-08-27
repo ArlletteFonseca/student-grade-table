@@ -7,27 +7,28 @@ class GradeTable{
     var tbody=this.tableElement.querySelector("tbody");
     tbody.textContent=" ";
     for(var i=0;i<grades.length;i++){
-      var tr=document.createElement("tr");
-      var tdStudent=document.createElement("td");
-      var tdCourse=document.createElement("td");
-      var tdGrade=document.createElement("td");
-      var tdOperations=document.createElement("td");
-      tdStudent.textContent=grades[i].name;
-      tdCourse.textContent=grades[i].course;
-      tdGrade.textContent=grades[i].grade;
-      tdOperations.textContent="hello"
-      tr.appendChild(tdStudent);
-      tr.appendChild(tdCourse);
-      tr.appendChild(tdGrade);
-      tbody.appendChild(tr);
+      // var tr=document.createElement("tr");
+      // var tdStudent=document.createElement("td");
+      // var tdCourse=document.createElement("td");
+      // var tdGrade=document.createElement("td");
+      // var tdOperations=document.createElement("td");
+      // tdStudent.textContent=grades[i].name;
+      // tdCourse.textContent=grades[i].course;
+      // tdGrade.textContent=grades[i].grade;
+      // tr.appendChild(tdStudent);
+      // tr.appendChild(tdCourse);
+      // tr.appendChild(tdGrade);
+      // tr.appendChild(tdOperations);
+      // tbody.appendChild(tr);
+
+      var render=this.renderGradeRow(this.data);
+      tbody.appendChild(render);
+      // tdOperations.appendChild(render);
       this.deleteGrade();
     }
 
-    if(grades===" "){
-      hiddenP.classList=" ";
-    }else{
-      hiddenP.classList="d-none";
-    }
+
+
   }
   onDeleteClick(deleteGrade){
     this.deleteGrade=deleteGrade;
@@ -56,3 +57,4 @@ class GradeTable{
     return tr;
   }
 }
+// trying to figure out render and where the data is coming from
