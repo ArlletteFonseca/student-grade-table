@@ -10,9 +10,9 @@ class GradeTable{
       var render=this.renderGradeRow(grades[i],this.deleteGrade);
       tbody.appendChild(render);
     }
-    if(grades=== null){
-        var p=document.getElementById("hidden-p");
-        p.classList.remove("d-none");
+    if(Object.keys(grades).length===0){
+      var p=document.getElementById("hidden-p");
+      p.classList.remove("d-none");
     }
   }
   onDeleteClick(deleteGrade){

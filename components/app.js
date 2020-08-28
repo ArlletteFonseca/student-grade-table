@@ -44,16 +44,14 @@ class App{
     $.ajax({
       method: "POST",
       url: "https://sgt.lfzprototypes.com/api/grades",
-      data:{ "name": "Arllette Fonseca",
-             "course": "Math 101",
-             "grade": 90
+      data:{ "name": name,
+             "course": course,
+             "grade": grade
           },
       headers: { "X-Access-Token": "bMeUYeQj" },
       success: this.handleCreateGradeSuccess,
       error: this.handleCreateGradeError
     })
-
-
   }
   handleCreateGradeError(error){
     console.error();
@@ -62,15 +60,13 @@ class App{
     this.getGrades();
   }
   deleteGrade(id){
-    console.log(id);
-    // $.ajax({
-    //   method: "DELETE",
-    //   url: "https://sgt.lfzprototypes.com/api/grades/:grade_id",
-    //   data: { "id": id},
-    //   headers: { "X-Access-Token": "bMeUYeQj" },
-    //   success: this.handleDeleteGradeSuccess,
-    //   error: this.handleDeleteGradeError
-    // })
+    $.ajax({
+      method: "DELETE",
+      url: "https://sgt.lfzprototypes.com/api/grades/"+id,
+      headers: { "X-Access-Token": "bMeUYeQj" },
+      success: this.handleDeleteGradeSuccess,
+      error: this.handleDeleteGradeError
+    })
   }
   handleDeleteGradeError(error){
     console.error(error);
@@ -78,5 +74,4 @@ class App{
   handleDeleteGradeSuccess(){
     this.getGrades();
   }
-
 }
