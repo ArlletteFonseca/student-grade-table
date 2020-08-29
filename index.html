@@ -16,25 +16,21 @@
 <body>
   <header>
     <div class="container page-header p-0">
-      <div class="row justify-content-between align-items-center">
+      <div class="row ">
         <div class="col-8">
             <h3 class=" font-weight-bold">Student Grade Table</h3>
         </div>
-          <div class="row col-4 align-items-center justify-content-end">
-          <div>
+          <div class="col-4">
             <h4 class="p-3">Average Grade</h4>
-          </div>
-          <div>
             <h2><span class="badge badge-secondary"></span></h2>
-          </div>
         </div>
       </div>
     </div>
   </header>
-  <div class="container p-0">
-    <div class="row justify-content-between align-items-center">
+  <div class="container p-0  ">
+    <div class="  row  ">
       <div class="col-8">
-        <table class=" table table-striped table-bordered grading-table" >
+        <table class=" table responsive table-striped table-bordered grading-table" >
         <thead class="thead-light">
           <tr>
             <th>Student Name</th>
@@ -48,7 +44,7 @@
         </table>
         <p class="d-none" id="hidden-p"> No Grades Recorded</p>
       </div>
-      <div class="row col-4 align-items-center justify-content-end   ">
+      <div class="col-4">
         <form action="" >
           <div class="form-group ">
             <label for="name"><i class="p-2 fa-lg fas fa-user-alt"></i></label>
@@ -62,11 +58,10 @@
             <label for="grade"><i class="p-2 fa-lg fas fa-graduation-cap"></i></label>
             <input type="text" name="grade" class="form-control-sm " placeholder="Grade">
           </div>
-          <div class="container " >
-            <div class=" row justify-content-end">
+          <div class="buttons">
               <button type="submit" class="m-2">Add</button>
               <button type="reset" class="m-2">Cancel</button>
-            </div>
+          </div>
           </div>
         </form>
       </div>
