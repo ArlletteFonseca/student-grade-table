@@ -1,5 +1,6 @@
 var tableElement=document.getElementsByClassName("grading-table")[0];
-var gradeTable=new GradeTable(tableElement);
+var hiddenP=document.getElementsByClassName("hidden-p")[0];
+var gradeTable=new GradeTable(tableElement,hiddenP);
 var headerElement=document.getElementsByClassName("page-header")[0];
 var pageHeader=new PageHeader(headerElement);
 var formElement=document.querySelector("form");

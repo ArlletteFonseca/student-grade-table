@@ -1,22 +1,43 @@
 class GradeTable{
-  constructor(tableElement){
+  constructor(tableElement,noGradesElement){
     this.tableElement=tableElement;
+    this.noGradesElement=noGradesElement;
   }
   updateGrades(grades){
+    console.log(grades);
     var tbody=this.tableElement.querySelector("tbody");
     tbody.textContent=" ";
     for(var i=0;i<grades.length;i++){
-      var tr=document.createElement("tr");
-      var tdStudent=document.createElement("td");
-      var tdCourse=document.createElement("td");
-      var tdGrade=document.createElement("td");
-      tdStudent.textContent=grades[i].name;
-      tdCourse.textContent=grades[i].course;
-      tdGrade.textContent=grades[i].grade;
-      tr.appendChild(tdStudent);
-      tr.appendChild(tdCourse);
-      tr.appendChild(tdGrade);
-      tbody.appendChild(tr);
+      var render=this.renderGradeRow(grades[i],this.deleteGrade);
+      tbody.appendChild(render);
     }
+    if(grades.length===0){
+      var p=document.getElementById("hidden-p");
+      p.classList.remove("d-none");
+    }
+  }
+  onDeleteClick(deleteGrade){
+    this.deleteGrade=deleteGrade;
+  }
+  renderGradeRow(grade,deleteGrade){
+    var tr=document.createElement("tr");
+    var td1=document.createElement("td");
+    var td2=document.createElement("td");
+    var td3=document.createElement("td");
+    var td4=document.createElement("td");
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    var button=document.createElement("button");
+    td4.appendChild(button);
+    button.classList="btn";
+    button.type="button";
+    td1.textContent=grade.name;
+    td2.textContent=grade.course;
+    td3.textContent=grade.grade;
+    button.textContent="DELETE";
+    button.addEventListener("click",function(){deleteGrade(grade.id)});
+    return tr;
   }
 }
