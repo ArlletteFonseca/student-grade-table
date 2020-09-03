@@ -31,7 +31,7 @@ class GradeTable{
     tr.appendChild(td4);
     var button=document.createElement("button");
     td4.appendChild(button);
-    button.classList="btn";
+    button.classList="btn btn-danger";
     button.type="button";
     td1.textContent=grade.name;
     td2.textContent=grade.course;
