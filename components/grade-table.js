@@ -19,7 +19,11 @@ class GradeTable{
   onDeleteClick(deleteGrade){
     this.deleteGrade=deleteGrade;
   }
-  renderGradeRow(grade,deleteGrade){
+  onUpdateClick(updateExistingGrade){
+    this.updateExistingGrade=updateExistingGrade;
+    console.log("Hello it works");
+  }
+  renderGradeRow(grade,deleteGrade,updateExistingGrade){
     var tr=document.createElement("tr");
     var td1=document.createElement("td");
     var td2=document.createElement("td");
@@ -29,15 +33,20 @@ class GradeTable{
     tr.appendChild(td2);
     tr.appendChild(td3);
     tr.appendChild(td4);
-    var button=document.createElement("button");
-    td4.appendChild(button);
-    button.classList="btn btn-danger";
-    button.type="button";
+    var buttonTrash=document.createElement("button");
+    var buttonEdit=document.createElement("button");
+    td4.appendChild(buttonEdit);
+    td4.appendChild(buttonTrash);
+    buttonEdit.classList = "fas fa-edit btn btn-info btn-sm";
+    buttonEdit.type = "button";
+    buttonTrash.classList ="fas fa-trash btn btn-danger btn-sm m-1";
+    buttonTrash.type="button";
     td1.textContent=grade.name;
     td2.textContent=grade.course;
     td3.textContent=grade.grade;
-    button.textContent="DELETE";
-    button.addEventListener("click",function(){deleteGrade(grade.id)});
+    buttonTrash.addEventListener("click",function(){deleteGrade(grade.id)});
+    buttonEdit.addEventListener("click",function()
+    {updateExistingGrade(grade.id)})
     return tr;
   }
 }
